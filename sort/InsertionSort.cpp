@@ -17,28 +17,30 @@ void printArray(int arr[], int size)
     printf("\n");
 }
 
-void selectionSort(int arr[], int n)
+void insertionSort(int arr[], int n)
 {
-    int i, j, min_pos;
-    for (i = 0; i < n-1; i++)
+    int i, j;
+    for (i = 1; i < n; i++)
     {
-        min_pos = i;
-        for (j = i+1; j < n; j++)
+        for (j = i; j > 0; j--)
         {
-            if (arr[j] < arr[min_pos])
+            if (arr[j] >= arr[j-1])
             {
-                min_pos = j;
+                break;
+            }
+            else
+            {
+                swap(&arr[j], &arr[j-1]);
             }
         }
-        swap(&arr[min_pos], &arr[i]);
     }
 }
 
 int main()
 {
-    int arr[] = {6, 1, 7, 8, 2, -1, 9, 3, 0, 5, 4, -2};
+    int arr[] = {5, 3, 4, 7, -2, -1, 8, 6, 2, 9, 1, 0};
     int n = sizeof(arr)/sizeof(arr[0]);
-    selectionSort(arr, n);
+    insertionSort(arr, n);
     printf("Sorted array: \n");
     printArray(arr, n);
     return 0;

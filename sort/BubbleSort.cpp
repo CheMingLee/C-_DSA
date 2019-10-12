@@ -41,7 +41,7 @@ void printArray(int arr[], int size)
 
 int main()
 {
-    int arr[] = {5, 9, 3, 1, 2, 8, 4, 7, 6};
+    int arr[] = {5, 9, -2, 3, 1, 2, 8, 0, 4, 7, 6, -1};
     int n = sizeof(arr)/sizeof(arr[0]);
     bubbleSort(arr, n);
     printf("Sorted array: \n");
